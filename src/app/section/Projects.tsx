@@ -2,7 +2,7 @@ const Projects = () => {
   return (
     <section className="projects flex-col justify-center items-center text-white">
       <h1 className="projects justify-self-center text-4xl">Projects</h1>
-      <div className="project-containers grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-10 h-[70vh]] mx-40 mt-10">
+      <div className="project-containers grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-10 h-[100vh]] mx-40 mt-10">
         <div className="lg:col-span-2 lg:row-span-2 justify-center rounded-2xl">
           <img
             className="rounded-2xl"
