@@ -1,5 +1,4 @@
 import TechStack from "../components/TechStack";
-import Projects from "./Projects";
 
 export default function Hero() {
   return (

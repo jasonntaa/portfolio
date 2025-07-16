@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Timeline = () => {
   return (
@@ -7,13 +8,13 @@ const Timeline = () => {
         <h1 className="text-5xl">My Journey</h1>
         <br />
         <h2 className="text-xl text-center mx-30">
-          I like bringing ideas to life—whether it's through code, videos, or
-          food! I'm drawn to projects that mix creativity with tech, and I'm
-          always up for connecting over shared curiosities, good design, or
-          great food.
+          I like bringing ideas to life—whether it&apos;s through code, videos,
+          or food! I&apos;m drawn to projects that mix creativity with tech, and
+          I&apos;m always up for connecting over shared curiosities, good
+          design, or great food.
         </h2>
       </div>
-      <div className="grid-container grid grid-cols-1 grid-rows-4 lg:grid-cols-3 text-white mt-10">
+      <div className="grid-container grid grid-cols-1 grid-rows-4 lg:grid-cols-3 text-white mt-30">
         <div className=" col-span-1 col-start-1 row-start-2 row-span-1 mt-15">
           <h1>Production Support Manager</h1>
           <h2>June 2020 - December 2023</h2>
@@ -28,11 +29,11 @@ const Timeline = () => {
           </p>
         </div>
         <div className="flex justify-center row-span-4 col-span-1 col-start-2">
-          <img
+          <Image
             className="timeline"
             src="/assets/timeline.svg"
             alt="timeline picture"
-          ></img>
+          ></Image>
         </div>
         <div className="col-start-3 text-white mt-5">
           <h1>Frontend Student</h1>
