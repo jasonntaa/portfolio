@@ -1,9 +1,26 @@
-import React from "react";
+"use client";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Timeline = () => {
+  useGSAP(() => {
+    gsap.to("#timeline", {
+      transformOrigin: "bottom bottom",
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#timeline",
+        start: "top center",
+        end: "70% center",
+      },
+    });
+  }, []);
+
   return (
-    <section className="mx-40">
+    <section>
       <div className="flex flex-col justify-center items-center text-white mt-40">
         <h1 className="text-5xl">My Journey</h1>
         <br />
@@ -28,11 +45,12 @@ const Timeline = () => {
             experience for end users.
           </p>
         </div>
-        <div className="flex justify-center row-span-4 col-span-1 col-start-2">
+        <div className="relative flex justify-center row-span-4 col-span-1 col-start-2">
           <Image
-            className="timeline"
+            id="timeline"
             src="/assets/timeline.svg"
             alt="timeline picture"
+            fill
           ></Image>
         </div>
         <div className="col-start-3 text-white mt-5">

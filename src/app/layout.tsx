@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./section/Footer";
+import Preloader from "./section/PreLoader";
+import SmoothScroller from "./components/SmoothScroller";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,14 +17,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-black">
-        <header className="fixed top-6 w-full">
-          <NavBar />
-        </header>
-        {children}
-        <footer>
-          <Footer />
-        </footer>
+      <body className="bg-background">
+        <Preloader />
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <NavBar />
+            <main>{children}</main>
+          </div>
+        </div>
+
+        <SmoothScroller />
       </body>
     </html>
   );

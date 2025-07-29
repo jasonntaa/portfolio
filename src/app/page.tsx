@@ -1,15 +1,19 @@
+import AboutMe from "./section/AboutMe";
 import ContactForm from "./section/ContactForm";
+import Experience from "./section/Experience";
+import Footer from "./section/Footer";
 import Hero from "./section/Hero";
+import MyProjects from "./section/MyProjects";
 import Projects from "./section/Projects";
-import Timeline from "./section/Timeline";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <MyProjects />
       <Projects />
-      <Timeline />
-      <ContactForm />
+      <Experience />
+      <Footer />
     </>
   );
 }
