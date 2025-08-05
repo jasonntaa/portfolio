@@ -10,14 +10,13 @@ interface NavOverlayProps {
   onScroll: () => void;
 }
 
-const NavOverlay = ({}: NavOverlayProps) => {
+const NavOverlay = () => {
   useGSAP(() => {
     const navClose = gsap.to(".overlay", {
       yPercent: -100,
       paused: true,
       duration: 0.5,
       ease: "power1.inOut",
-      onComplete: onScroll,
     });
     ScrollTrigger.create({
       start: "top top",

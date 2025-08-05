@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import React from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TechStack from "./TechStack";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,7 +66,7 @@ const MyProjects = () => {
       <div className="wrapper overflow-hidden flex flex-col justify-center items-center py-8">
         {/* Hidden title section - similar to Framer example */}
         <div className="text-center mb-6">
-          <h1 className="title-main text-black text-[clamp(2rem,8vw,4rem)] font-light tracking-wider uppercase">
+          <h1 className="title-main text-black text-[clamp(2rem,8vw,4rem)] tracking-wider uppercase">
             Welcome To My Playground
           </h1>
         </div>

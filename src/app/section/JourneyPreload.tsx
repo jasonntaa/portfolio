@@ -42,12 +42,12 @@ const JourneyPreload = () => {
   });
 
   return (
-    <section className="flex-center justify-center items-center h-screen w-full bg-[##1a1a1a] m-auto">
+    <section className="flex-center justify-center items-center h-screen w-full bg-[#1a1a1a] m-auto">
       <div className="journey-wrapper overflow-hidden flex flex-col justify-center items-center py-8">
         <div className="text-center mb-6">
           <h1
             id="journey"
-            className="journey-title text-white text-[clamp(1rem,8vw,4rem)] font-light uppercase tracking-wider"
+            className="journey-title text-white text-[clamp(1rem,8vw,4rem)] uppercase tracking-wider"
           >
             My Journey
           </h1>

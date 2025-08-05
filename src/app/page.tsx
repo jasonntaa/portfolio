@@ -6,6 +6,7 @@ import MyProjects from "./section/ProjectsPreload";
 import Projects from "./section/Projects";
 import JourneyPreload from "./section/JourneyPreload";
 import NavOverlay from "./components/NavOverlay";
+import TechStack from "./section/TechStack";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <MyProjects />
       <Projects />
+      <TechStack />
       <JourneyPreload />
       <Experience />
       <Footer />
