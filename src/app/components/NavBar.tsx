@@ -5,74 +5,29 @@ import { useState, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import NavOverlay from "./NavOverlay";
 gsap.registerPlugin(ScrollTrigger);
 
 const NavBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState("false");
-  const navRef = useRef(null);
+  const [navOpen, setNavOpen] = useState(false);
+  const onClose = () => setNavOpen(false);
 
-  useGSAP(() => {
-    // Hero section - black background
-    gsap.to(navRef.current, {
-      backgroundColor: "#000000",
-      textColor: "white",
-      scrollTrigger: {
-        trigger: "#hero", // Your hero section ID
-        start: "top bottom",
-        end: "bottom top",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    // About section - light background
-    gsap.to(navRef.current, {
-      backgroundColor: "#fafaf9", // Match your AboutMe bg
-      textColor: "black",
-      scrollTrigger: {
-        trigger: "#about", // Your about section ID
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    // Experience section - different color
-    gsap.to(navRef.current, {
-      backgroundColor: "#ffffff",
-      textColor: "black",
-      scrollTrigger: {
-        trigger: "#experience", // Your experience section ID
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    // Contact section - another color
-    gsap.to(navRef.current, {
-      backgroundColor: "#1f2937",
-      textColor: "white",
-      scrollTrigger: {
-        trigger: "#contact", // Your contact section ID
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play none none reverse",
-      },
-    });
-  }, []);
   return (
-    <header className="sticky top-0 z-30 flex justify-center w-full p-4 m-auto">
-      <nav className=" nav-container flex justify-center items-center rounded-xl mt-6 gap-60 p-6">
-        <ul className="text-white flex justify-center z-10 gap-15 w-full ">
-          <Link href="">Home</Link>
-          <Link href="">Projects</Link>
-          <Link href="">Journey</Link>
-          <Link href="">Contact</Link>
-        </ul>
-        <div>
-          <button className="flex justify-end text-white">Switch</button>
-        </div>
+    <header className="sticky z-30 flex flex-col w-full p-4 m-auto">
+      <nav className="flex justify-between w-full items-center">
+        <p>Jason</p>
+        <button
+          id="menu"
+          className="cursor-pointer bg-transparent border-none flex flex-col gap-2"
+          onClick={() => {
+            setNavOpen(!navOpen);
+          }}
+        >
+          <span className="bg-white w-[50px] h-[1px]"></span>
+          <span className="bg-white w-[50px] h-[1px]"></span>
+        </button>
       </nav>
+      {navOpen ? <NavOverlay /> : null}
     </header>
   );
 };

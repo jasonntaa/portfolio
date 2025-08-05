@@ -20,9 +20,9 @@ const AboutMe = () => {
         <h2>I love learning, solving problems, and creating!</h2>
         <h3>Expertise</h3>
         <div>
-          {techstack.map((item, index) => (
-            <TechBadge key={index} tech={item.tech} />
-          ))}
+          {/* {techstack.map((item, index) => (
+            <TechBadge key={item.tech} tech={item.tech} />
+          ))} */}
         </div>
       </div>
     </section>

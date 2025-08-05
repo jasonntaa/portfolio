@@ -7,23 +7,9 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const Timeline = () => {
-  useGSAP(() => {
-    gsap.to("#timeline", {
-      transformOrigin: "bottom bottom",
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: "#timeline",
-        start: "top center",
-        end: "70% center",
-      },
-    });
-  }, []);
-
   return (
-    <section>
+    <section id="Journey" className="bg-[#1a1a1a]">
       <div className="flex flex-col justify-center items-center text-white mt-40">
-        <h1 className="text-5xl">My Journey</h1>
-        <br />
         <h2 className="text-xl text-center mx-30">
           I like bringing ideas to life—whether it&apos;s through code, videos,
           or food! I&apos;m drawn to projects that mix creativity with tech, and

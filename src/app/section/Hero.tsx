@@ -9,14 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
   useGSAP(() => {
     gsap.to(".text", {
+      immediateRender: false,
       scrollTrigger: {
         trigger: ".text",
         start: "center center",
         end: "+=300px",
         markers: true,
-        scrub: 2,
-        pin: ".text",
-        pinSpacing: false,
+        scrub: 1,
+        pin: "#hero",
+        anticipatePin: 1,
       },
       y: -80,
       opacity: 0,
@@ -31,7 +32,7 @@ export default function Hero() {
       <h1 className="text text-[clamp(1.5rem,8vw,8rem)] text-center text-white whitespace-nowrap">
         Front End Developer
       </h1>
-      <h4 className="text text-white text-[clamp(1rem,4vw,4rem)] mb-40">
+      <h4 className="text text-white text-[clamp(1rem,4vw,3.5rem)] mb-40">
         Bringing creativity to scalable code
       </h4>
       <button className="text border-2 rounded-3xl text-[clamp(0.8rem, 2.5vw, 1.25rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.5rem,1.5vw,1rem)]">
