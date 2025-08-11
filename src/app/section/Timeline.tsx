@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Timeline = () => {
   return (
     <section id="Journey" className="bg-[#1a1a1a]">
-      <div className="flex flex-col justify-center items-center text-white mt-40">
+      <div className="flex flex-col justify-center items-center text-white mt-4 border-solid border-white border-2">
         <h2 className="text-xl text-center mx-30">
           I like bringing ideas to life—whether it&apos;s through code, videos,
           or food! I&apos;m drawn to projects that mix creativity with tech, and

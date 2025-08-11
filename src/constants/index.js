@@ -1,6 +1,7 @@
 const expCards = [
   {
-    logoPath: "images/GB.svg",
+    logoPath: "images/GB.png",
+    type: "work",
     title: "Front End Developer",
     company: "George Brown College",
     date: "May 2025-Present",
@@ -10,7 +11,8 @@ const expCards = [
     ],
   },
   {
-    logoPath: "images/OT.svg",
+    logoPath: "images/OT.png",
+    type: "work",
     title: "Production Support Manager",
     company: "OpenText",
     date: "June 2020 - December 2023",
@@ -20,7 +22,8 @@ const expCards = [
     ],
   },
   {
-    logoPath: "images/UW.svg",
+    logoPath: "images/UW.png",
+    type: "work",
     title: "Service Desk Specialist",
     company: "University of Waterloo",
     date: "March 2018 - May 2020",
@@ -28,6 +31,22 @@ const expCards = [
       "Resolved high volume of technical issues across multiple plaftorms.",
       "Demonstrated strong troubleshooting and problem-solving skills.",
     ],
+  },
+  {
+    logoPath: "images/GB.png",
+    type: "education",
+    title: "Postgraduate Certificate in Front-End Design",
+    company: "George Brown College",
+    date: "May 2025-Present",
+    description: [],
+  },
+  {
+    logoPath: "images/UW.png",
+    type: "education",
+    title: "Bachelors of Science - Honours Science",
+    company: "University of Waterloo",
+    date: "September 2015 - May 2020",
+    description: [],
   },
 ];
 

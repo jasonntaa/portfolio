@@ -1,74 +1,104 @@
 "use client";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import TitleHeader from "../components/TitleHeader";
+
 import { expCards } from "@/constants";
+
+import { useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
-  useGSAP(() => {
-    gsap.to(".timeline", {
-      transformOrigin: "bottom bottom",
+  const [activeTab, setActiveTab] = useState("work");
+  const workCards = expCards.filter(
+    (card) => card.type === "work" || !card.type
+  );
+  const educationCards = expCards.filter((card) => card.type === "education");
 
-      ease: "power1.inOut",
-
-      scrollTrigger: {
-        trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
-
-        onUpdate: (self) => {
-          gsap.to(".timeline", {
-            scaleY: 1 - self.progress,
-          });
-        },
-      },
-    });
-  }, []);
+  const currentCards = activeTab === "work" ? workCards : educationCards;
 
   return (
     <section
       id="experience"
       className="flex-center md:mt-40 mt-20 section-padding xl:px-0 bg-[#1a1a1a]"
     >
-      <div className="w-full h-full md:px-20 px-5">
+      <div className="w-[60vw] md:px-20 px-5 border-solid sticky">
         <div className="mt-32 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
-            {expCards.map((card) => (
-              <div key={card.title} className="exp-card-wrapper">
-                <div className="xl:w-4/6">
-                  <div className="flex items-start">
-                    <div className="timeline-wrapper">
-                      <div className="timeline" />
-                      <div className="gradient-line w-1 h-full" />
-                    </div>
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" />
+          <div className="mb-8">
+            <div className="flex items-center justify-center rounded-lg bg-gray-800/50 p-1 mb-4 max-w-md mx-auto">
+              <button
+                onClick={() => setActiveTab("work")}
+                className={`flex-1 px-6 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                  activeTab === "work"
+                    ? "bg-white text-gray-900 shadow-lg"
+                    : "text-gray-400 hover:text-white"
+                }`}
+              >
+                Work Experience
+              </button>
+              <button
+                onClick={() => setActiveTab("education")}
+                className={`flex-1 px-6 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                  activeTab === "education"
+                    ? "bg-white text-gray-900 shadow-lg"
+                    : "text-gray-400 hover:text-white"
+                }`}
+              >
+                Education
+              </button>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="rounded-xl border border-gray-700 bg-gray-900/50 shadow-xl">
+              <div className="p-0">
+                <ul className="ml-10 border-l border-gray-600">
+                  {currentCards.map((card, index) => (
+                    <li
+                      key={card.title}
+                      className="relative ml-10 py-6 first:pt-6 last:pb-6"
+                    >
+                      <div className="absolute -left-16 top-6 flex items-center justify-center ">
+                        <div className="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 border mt-3">
+                          <img
+                            className="aspect-square h-full w-full object-contain"
+                            alt={card.title}
+                            src={card.logoPath}
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="my-5 text-white-50">
-                          🗓️&nbsp;{card.date}
-                        </p>
-                        <p className="text-[#839CB5] italic">
-                          Responsibilities
-                        </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
-                          {card.description.map((description, index) => (
-                            <li key={index} className="text-lg">
-                              {description}
-                            </li>
-                          ))}
-                        </ul>
+
+                      <div className="flex flex-1 flex-col justify-start gap-2">
+                        <time className="text-xs text-gray-400">
+                          {card.date}
+                        </time>
+
+                        <h2 className="font-semibold text-xl text-white leading-tight">
+                          {card.company}
+                        </h2>
+
+                        <div className="mb-4">
+                          <p className="text-white italic text-sm mb-3">
+                            {card.title}
+                          </p>
+                          <ul className="ml-4 list-outside list-disc space-y-2">
+                            {card.description.map((description, descIndex) => (
+                              <li
+                                key={descIndex}
+                                className="text-sm text-gray-300 leading-relaxed"
+                              >
+                                {description}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
