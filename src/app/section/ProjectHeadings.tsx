@@ -26,7 +26,7 @@ const MyProjects = () => {
 
   return (
     <section className="flex-center h-screen w-full bg-[#fafaf9] m-auto">
-      <h2 className="projects text-black text-[clamp(1rem,8vw,2rem)]">
+      <h2 className="projects text-black text-[clamp(1rem,3vw,4rem)]">
         Welcome To My Playground
       </h2>
     </section>

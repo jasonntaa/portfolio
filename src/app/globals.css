@@ -33,3 +33,53 @@ body {
   }
 }
 
+@layer utilities {
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+.nav-text {
+  color: #000000; /* Default to black text */
+  transition: color 0.3s ease-in-out;
+}
+
+.hamburger-line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: #000000; /* Default to black lines */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Dark theme state for the navbar */
+.nav-theme-dark .nav-text {
+  color: #ffffff; /* Change text to white */
+}
+
+.nav-theme-dark .hamburger-line {
+  background-color: #ffffff; /* Change hamburger to white */
+}
+
+.nav-text:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+.nav-logo {
+  color: #000000;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-theme-dark .nav-logo {
+  color: #ffffff; 
+}

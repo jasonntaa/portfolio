@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./components/NavBar";
-import Footer from "./section/Footer";
+
 import Preloader from "./section/PreLoader";
 import SmoothScroller from "./components/SmoothScroller";
-import { useState } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-background">
         <Preloader />
+        <NavBar />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            <NavBar />
             <main>{children}</main>
           </div>
         </div>

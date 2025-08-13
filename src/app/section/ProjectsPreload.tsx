@@ -20,7 +20,7 @@ const MyProjects = () => {
       scrollTrigger: {
         trigger: ".wrapper",
         start: "top 80%",
-        end: "center center",
+        end: "bottom bottom",
         toggleActions: "play none none reverse",
         markers: true,
       },
@@ -46,88 +46,25 @@ const MyProjects = () => {
         },
         "-=0.3"
       );
-
-    // Exit animation on scroll
-    gsap.to(".wrapper", {
-      y: -50,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".wrapper",
-        start: "center center",
-        end: "+=200px",
-        scrub: 2,
-        markers: true,
-      },
-    });
   });
 
   return (
-    <section className="flex-center justify-center items-center h-screen w-full bg-[#fafaf9] m-auto">
-      <div className="wrapper overflow-hidden flex flex-col justify-center items-center py-8">
+    <section
+      id="projects"
+      className="flex-center justify-center items-center h-[75vh]  w-full bg-[#fafaf9] m-auto"
+    >
+      <div className="wrapper overflow-hidden flex flex-col mt-30 justify-center items-center py-8">
         {/* Hidden title section - similar to Framer example */}
         <div className="text-center mb-6">
-          <h1 className="title-main text-black text-[clamp(2rem,8vw,4rem)] tracking-wider uppercase">
+          <h1 className="title-main text-black text-[clamp(2rem,4vw,6rem)] tracking-wider uppercase font-semibold">
             Welcome To My Playground
           </h1>
         </div>
 
-        {/* Descriptive words - similar to the visible section in Framer */}
-        <div className="text-center space-y-2">
-          <p className="descriptor text-black text-[clamp(0.8rem,3vw,1.2rem)] uppercase tracking-wide">
-            Code · Creativity
-          </p>
-          <p className="descriptor text-black text-[clamp(0.8rem,3vw,1.2rem)] uppercase tracking-wide">
-            Innovation · Design
-          </p>
-          <p className="descriptor text-black text-[clamp(0.8rem,3vw,1.2rem)] uppercase tracking-wide">
-            Experience · Quality
-          </p>
-        </div>
+        <TechStack />
       </div>
     </section>
   );
 };
 
 export default MyProjects;
-// "use client";
-
-// import { useGSAP } from "@gsap/react";
-// import React from "react";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// const MyProjects = () => {
-//   useGSAP(() => {
-//     gsap.fromTo(
-//       ".wrapper",
-//       { y: 0, opacity: 1 },
-//       {
-//         y: -50,
-//         opacity: 0,
-//         scrollTrigger: {
-//           trigger: ".wrapper",
-//           start: "center center",
-//           end: "+=200px",
-//           scrub: 3,
-//           pin: true,
-
-//           markers: true,
-//         },
-//       }
-//     );
-//   });
-
-//   return (
-//     <section className="flex-center justify-center items-center h-screen w-full bg-[#fafaf9] m-auto">
-//       <div className="wrapper overflow-hidden flex justify-center items-center h-[5rem]">
-//         <h2 id="playground" className="text-black text-[clamp(1rem,8vw,2rem)]">
-//           Welcome To My Playground
-//         </h2>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default MyProjects;
