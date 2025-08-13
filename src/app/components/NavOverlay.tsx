@@ -108,6 +108,7 @@ const NavOverlay = ({ isOpen, onClose }: NavOverlayProps) => {
       </Link>
       <Link
         href="#aboutme"
+        onClick={(e) => handleLinkClick(e, "#aboutme")}
         className="text-white text-[clamp(1rem,6vw,30rem)] nav-text flex items-center"
       >
         <svg
