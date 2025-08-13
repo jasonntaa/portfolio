@@ -38,7 +38,7 @@ const Preloader = () => {
       className="fixed top-0 w-full h-screen bg-[#1a1a1a] flex flex-col justify-center items-center text-white z-300"
     >
       <h4 id="text" className="text-3xl">
-        Hi! I'm Jason 👋
+        Hi! I&apos;m Jason 👋
       </h4>
       <div id="loader" className="w-100 h-[2px] bg-white mt-4"></div>
     </div>

@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { expCards } from "@/constants";
 import { useState } from "react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,10 +54,12 @@ const Experience = () => {
               >
                 <div className="absolute -left-6 top-8 flex items-center justify-center">
                   <div className="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 p-1 bg-[#2e2e2e]">
-                    <img
-                      className="aspect-square h-full w-full object-contain"
+                    <Image
+                      className="object-contain"
                       alt={card.title}
                       src={card.logoPath}
+                      fill
+                      sizes="3rem"
                     />
                   </div>
                 </div>
