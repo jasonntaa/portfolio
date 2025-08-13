@@ -22,7 +22,7 @@ const Projects = () => {
         start: "bottom bottom",
         end: "+=100px",
         toggleActions: "play none none reverse",
-        markers: true,
+        markers: false,
       },
       y: 30,
       opacity: 0,

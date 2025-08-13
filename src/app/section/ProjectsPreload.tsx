@@ -10,12 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const MyProjects = () => {
   useGSAP(() => {
-    // Set initial states for all text elements
     gsap.set(".title-main", { opacity: 0, y: 30 });
     gsap.set(".title-sub", { opacity: 0, y: 20 });
     gsap.set(".descriptor", { opacity: 0, y: 15 });
 
-    // Create entrance timeline
     const entranceTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".wrapper",
@@ -26,7 +24,6 @@ const MyProjects = () => {
       },
     });
 
-    // Staggered entrance animation
     entranceTl
       .to(".title-main", {
         opacity: 1,
@@ -54,7 +51,6 @@ const MyProjects = () => {
       className="flex-center justify-center items-center h-[75vh]  w-full bg-[#fafaf9] m-auto"
     >
       <div className="wrapper overflow-hidden flex flex-col mt-30 justify-center items-center py-8">
-        {/* Hidden title section - similar to Framer example */}
         <div className="text-center mb-6">
           <h1 className="title-main text-black text-[clamp(2rem,4vw,6rem)] tracking-wider uppercase font-semibold">
             Welcome To My Playground
