@@ -22,7 +22,7 @@ const MyProjects = () => {
         start: "top 80%",
         end: "bottom bottom",
         toggleActions: "play none none reverse",
-        markers: true,
+        markers: false,
       },
     });
 
