@@ -19,17 +19,14 @@ const TechStack = () => {
     techItems.forEach((item: HTMLDivElement) => {
       const icon = item.querySelector("svg");
 
-      // Mouse enter animation
       item.addEventListener("mouseenter", () => {
         const rect = item.getBoundingClientRect();
         const containerRect = containerRef.current?.getBoundingClientRect();
 
         if (containerRect && highlight) {
-          // Calculate position relative to container
           const x = rect.left - containerRect.left;
           const y = rect.top - containerRect.top;
 
-          // Animate highlight to new position
           gsap.to(highlight, {
             x: x,
             y: y,
@@ -42,7 +39,6 @@ const TechStack = () => {
           });
         }
 
-        // Scale icon on hover
         gsap.to(icon, {
           scale: 1.1,
           duration: 0.1,
@@ -50,7 +46,6 @@ const TechStack = () => {
         });
       });
 
-      // Mouse leave animation
       item.addEventListener("mouseleave", () => {
         gsap.to(icon, {
           scale: 1,
@@ -60,7 +55,6 @@ const TechStack = () => {
       });
     });
 
-    // Hide highlight when leaving container
     containerRef.current?.addEventListener("mouseleave", () => {
       gsap.to(highlight, {
         opacity: 0,
@@ -72,23 +66,19 @@ const TechStack = () => {
   }, []);
 
   return (
-    <section className="descriptor bg-[#fafaf9] w-[80vw] relative py-20 w">
+    <section className="descriptor bg-[#fafaf9] w-[80vw] relative py-20 ">
       <h3 className="flex justify-center items-center text-black text-[clamp(1rem,2vw,1.5rem)]  uppercase">
         Tech Stack
       </h3>
-      <div ref={containerRef} className="relative w-[50vw] mx-auto mt-10">
-        {/* Moving highlight overlay */}
+      <div ref={containerRef} className="relative w-[60vw] mx-auto mt-10">
         <div
           ref={highlightRef}
           className="absolute top-0 left-0 bg-black/10 rounded-xl pointer-events-none z-0 backdrop-blur-sm border border-black/5"
           style={{ willChange: "transform" }}
         />
 
-        {/* Desktop Grid */}
         <div className="hidden lg:block">
-          {/* Top Row - 3 columns */}
           <div className="grid grid-cols-3 border-b border-neutral-300">
-            {/* React */}
             <div className="tech-item flex items-center justify-center border-r border-neutral-300 group cursor-pointer h-[clamp(100px,16vw,160px)] relative z-10">
               <svg
                 fill="#000"
@@ -104,7 +94,6 @@ const TechStack = () => {
               </svg>
             </div>
 
-            {/* Next.js */}
             <div
               className="tech-item flex items-center justify-center border-r border-neutral-300 group cursor-pointer h-[clamp(100px,16vw,160px)] relative z-10"
               aria-label="Visit Next.js website"
@@ -129,7 +118,6 @@ const TechStack = () => {
               </svg>
             </div>
 
-            {/* TypeScript */}
             <div
               className="tech-item flex items-center justify-center group cursor-pointer h-[clamp(100px,16vw,160px)] relative z-10"
               aria-label="Visit TypeScript website"
@@ -154,7 +142,6 @@ const TechStack = () => {
           </div>
 
           <div className="grid grid-cols-3">
-            {/* CSS */}
             <div className="tech-item flex items-center justify-center border-r border-neutral-300 group cursor-pointer h-[clamp(100px,16vw,160px)] relative z-10">
               <svg
                 width="40px"
@@ -176,7 +163,6 @@ const TechStack = () => {
               </svg>
             </div>
 
-            {/* Tailwind */}
             <div
               className="tech-item flex items-center justify-center border-r border-neutral-300 group cursor-pointer h-[clamp(100px,16vw,160px)] relative z-10"
               aria-label="Visit TailwindCSS website"
@@ -197,7 +183,6 @@ const TechStack = () => {
               </svg>
             </div>
 
-            {/* Figma */}
             <div
               className="tech-item flex items-center justify-center group cursor-pointer h-[clamp(100px,16vw,160px)] relative z-10"
               aria-label="Visit Figma website"
@@ -222,9 +207,7 @@ const TechStack = () => {
           </div>
         </div>
 
-        {/* Mobile Grid - 2 columns */}
         <div className="grid grid-cols-2 lg:hidden gap-0">
-          {/* Mobile items with same structure but simplified layout */}
           <div className="tech-item flex items-center justify-center border-r border-b border-neutral-300 group cursor-pointer h-[clamp(75px,12.5vw,100px)] relative z-10">
             <svg
               fill="#000"
@@ -332,8 +315,6 @@ const TechStack = () => {
               />
             </svg>
           </div>
-
-          {/* Add more mobile items as needed */}
         </div>
       </div>
     </section>

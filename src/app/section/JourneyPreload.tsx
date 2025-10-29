@@ -17,7 +17,7 @@ const JourneyPreload = () => {
         start: "top 80%",
         end: "center center",
         toggleActions: "play none none reverse",
-        markers: true,
+        markers: false,
       },
     });
 
@@ -36,13 +36,13 @@ const JourneyPreload = () => {
         start: "center center",
         end: "+=200px",
         scrub: 2,
-        markers: true,
+        markers: false,
       },
     });
   });
 
   return (
-    <section className="flex-center justify-center items-center h-screen w-full bg-[#1a1a1a] m-auto">
+    <section className="flex justify-center items-center h-screen w-full m-auto">
       <div className="journey-wrapper overflow-hidden flex flex-col justify-center items-center py-8">
         <div className="text-center mb-6">
           <h1

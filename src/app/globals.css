@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
-:root {
-
+@theme {
+  --color-primary: #1a1a1a;
+  --color-secondary: #fafaf9;
 }
-
 html,
 body {
   width: 100dvw;
@@ -24,14 +24,6 @@ body {
   width: 100%;
 }
 
-@layer utilities {
-  .flex-center {
-    @apply flex justify-center items-center;
-  }
-  .flex-col-center {
-    @apply flex flex-col justify-center items-center;
-  }
-}
 
 @layer utilities {
   @keyframes marquee {
@@ -49,37 +41,3 @@ body {
   }
 }
 
-.nav-text {
-  color: #000000; /* Default to black text */
-  transition: color 0.3s ease-in-out;
-}
-
-.hamburger-line {
-  display: block;
-  width: 40px;
-  height: 1px;
-  background-color: #000000; /* Default to black lines */
-  transition: background-color 0.3s ease-in-out;
-}
-
-/* Dark theme state for the navbar */
-.nav-theme-dark .nav-text {
-  color: #ffffff; /* Change text to white */
-}
-
-.nav-theme-dark .hamburger-line {
-  background-color: #ffffff; /* Change hamburger to white */
-}
-
-.nav-text:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
-.nav-logo {
-  color: #000000;
-  transition: color 0.3s ease-in-out;
-}
-
-.nav-theme-dark .nav-logo {
-  color: #ffffff; 
-}

@@ -16,7 +16,7 @@ const MyProjects = () => {
         end: "60px center",
         scrub: 1,
         pin: true,
-        markers: true,
+        markers: false,
       },
       y: 30,
       opacity: 0,
@@ -25,7 +25,7 @@ const MyProjects = () => {
   });
 
   return (
-    <section className="flex-center h-screen w-full bg-[#fafaf9] m-auto">
+    <section className="flex justify-center items-center h-screen w-full bg-[#fafaf9] m-auto">
       <h2 className="projects text-black text-[clamp(1rem,3vw,4rem)]">
         Welcome To My Playground
       </h2>

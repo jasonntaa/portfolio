@@ -48,7 +48,7 @@ const MyProjects = () => {
   return (
     <section
       id="projects"
-      className="flex-center justify-center items-center h-[75vh]  w-full bg-[#fafaf9] m-auto"
+      className="flex justify-center items-center h-[75vh]  w-full bg-[#fafaf9] m-auto -mt-px"
     >
       <div className="wrapper overflow-hidden flex flex-col mt-30 justify-center items-center py-8">
         <div className="text-center mb-6">

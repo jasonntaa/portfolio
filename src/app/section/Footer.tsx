@@ -16,15 +16,17 @@ const Footer = () => {
             alt="git logo"
             width={40}
             height={40}
+            draggable={false}
           />
         </Link>
-        <Link href="mailto:jason.t.ta@outlook.com">
+        <Link href="mailto:jasonntaa@gmail.com">
           <Image
             className="w-10 h-10 transition-transform hover:scale-110"
             src="/assets/email-button.svg"
             alt="email"
             width={40}
             height={40}
+            draggable={false}
           />
         </Link>
         <Link
@@ -38,6 +40,7 @@ const Footer = () => {
             alt="linkedin"
             width={40}
             height={40}
+            draggable={false}
           />
         </Link>
         <Link
@@ -51,6 +54,7 @@ const Footer = () => {
             alt="youtube"
             width={40}
             height={40}
+            draggable={false}
           />
         </Link>
       </div>
