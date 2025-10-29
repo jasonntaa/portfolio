@@ -85,7 +85,7 @@ const About = () => {
           <div className="w-full flex justify-center lg:justify-start max-w-md">
             <div className="about-image rounded-2xl overflow-hidden relative">
               <Image
-                src="/profile.jpg"
+                src="/images/profile.JPG"
                 alt="profile picture"
                 width={450}
                 height={1200}
