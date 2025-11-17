@@ -18,8 +18,8 @@ const NavLinks = ({
 }) => {
   const links = [
     { href: "#hero", label: "Home" },
-    { href: "#aboutme", label: "About Me" },
     { href: "#projects", label: "Projects" },
+    { href: "#aboutme", label: "About Me" },
   ];
 
   return (
