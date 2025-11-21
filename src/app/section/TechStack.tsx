@@ -117,7 +117,6 @@ const TechStack = () => {
         <div
           ref={tooltipRef}
           className="absolute bg-black text-white px-3 py-1.5 rounded-lg text-sm font-medium z-20 pointer-events-none whitespace-nowrap"
-          style={{ xPercent: -50, yPercent: 0 }}
         >
           {hoveredTech}
         </div>
