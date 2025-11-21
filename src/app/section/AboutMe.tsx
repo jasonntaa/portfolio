@@ -50,12 +50,12 @@ const About = () => {
           About Me
         </h2>
 
-        <div className="flex gap-8 flex-col justify-center items-center lg:flex-row lg:items-start pt-10 px-5 max-w-7xl">
+        <div className="flex gap-30 flex-col justify-center items-center lg:flex-row lg:items-start pt-10 px-5 max-w-7xl">
           <div className="flex flex-col max-w-2xl items-start justify-start ">
             <h2 className="about-text text-black text-[clamp(2rem,6vw,3rem)] text-semibold text-bold text-left">
               Holistic Approach to Development
             </h2>
-            <div className="about-text text-gray-700 text-lg text-left  leading-relaxed mt-8">
+            <div className="about-text text-gray-700 text-lg text-justify leading-relaxed mt-8">
               <p>
                 <strong>Background: </strong>I started my career in IT and
                 product support, and eventually started leading teams, helping
