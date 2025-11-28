@@ -7,7 +7,7 @@ export function Contact() {
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText("marcus.chen@email.com");
+      await navigator.clipboard.writeText("jasonntaa@gmail.com");
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
     } catch (err) {
@@ -61,7 +61,7 @@ export function Contact() {
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 group">
               <a
-                href="mailto:marcus.chen@email.com"
+                href="mailto:jasonntaa@gmail.com"
                 className="text-xl sm:text-2xl md:text-3xl text-white dark:text-black hover:text-white/70 dark:hover:text-black/70 transition-colors break-all focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-black focus:ring-offset-2 focus:ring-offset-black dark:focus:ring-offset-white rounded-lg px-2 py-1"
               >
                 jasonntaa@gmail.com
@@ -69,16 +69,16 @@ export function Contact() {
               <button
                 onClick={copyEmail}
                 className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-black/10 hover:bg-white/20 dark:hover:bg-black/20 rounded-full transition-all text-sm focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-black focus:ring-offset-2 focus:ring-offset-black dark:focus:ring-offset-white active:scale-95"
-                aria-label={copiedEmail ? "Email copied" : "Copy email address"}
+                aria-label={copiedEmail ? "Email copied to clipboard" : "Copy email address to clipboard"}
               >
                 {copiedEmail ? (
                   <>
-                    <CheckIcon className="h-4 w-4" />
+                    <CheckIcon className="h-4 w-4" aria-hidden="true" />
                     Copied!
                   </>
                 ) : (
                   <>
-                    <CopyIcon className="h-4 w-4" />
+                    <CopyIcon className="h-4 w-4" aria-hidden="true" />
                     Copy
                   </>
                 )}
@@ -99,11 +99,11 @@ export function Contact() {
                   className="group/social flex flex-col gap-4 p-6 bg-white/5 dark:bg-black/5 hover:bg-white/10 dark:hover:bg-black/10 rounded-2xl transition-all border border-white/10 dark:border-black/10 hover:border-white/20 dark:hover:border-black/20 focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-black focus:ring-offset-2 focus:ring-offset-black dark:focus:ring-offset-white"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Visit my ${social.label} profile`}
+                  aria-label={`Visit my ${social.label} profile (opens in a new tab)`}
                 >
                   <div className="flex items-center justify-between">
-                    <social.icon className="h-6 w-6 text-white/40 dark:text-black/40 group-hover/social:text-white dark:group-hover/social:text-black transition-colors" />
-                    <ArrowUpRight className="h-4 w-4 text-white/30 dark:text-black/30 group-hover/social:text-white/50 dark:group-hover/social:text-black/50 transition-colors" />
+                    <social.icon className="h-6 w-6 text-white/40 dark:text-black/40 group-hover/social:text-white dark:group-hover/social:text-black transition-colors" aria-hidden="true" />
+                    <ArrowUpRight className="h-4 w-4 text-white/30 dark:text-black/30 group-hover/social:text-white/50 dark:group-hover/social:text-black/50 transition-colors" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm text-white/50 dark:text-black/50 mb-1 transition-colors duration-300">

@@ -62,7 +62,8 @@ const ProjectDialog = ({ project }: ProjectDialogProps) => {
             href={project.liveSiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-black bg-white rounded-lg hover:bg-neutral-200 transition-colors"
+            aria-label={`Visit ${project.title} live site (opens in a new tab)`}
+            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-black bg-white rounded-lg hover:bg-neutral-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             Live Site
           </a>
@@ -70,7 +71,8 @@ const ProjectDialog = ({ project }: ProjectDialogProps) => {
             href={project.codeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-transparent border-2 border-neutral-600 rounded-lg hover:bg-neutral-800 transition-colors"
+            aria-label={`View ${project.title} code on GitHub (opens in a new tab)`}
+            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-transparent border-2 border-neutral-600 rounded-lg hover:bg-neutral-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             View Code
           </a>

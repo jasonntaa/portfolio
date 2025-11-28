@@ -113,6 +113,11 @@ const NavBar = () => {
             id="menu"
             className="flex md:flex lg:hidden cursor-pointer bg-transparent border-none flex-col gap-2"
             onClick={toggleNav}
+            aria-label={
+              navOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={navOpen}
+            aria-controls="nav-overlay"
           >
             <span className="block w-[40px] h-[1px] bg-white"></span>
             <span className="block w-[40px] h-[1px] bg-white"></span>

@@ -9,6 +9,7 @@ const Footer = () => {
           href="https://github.com/jasonntaa"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my GitHub profile (opens in a new tab)"
         >
           <Image
             className="w-10 h-10 transition-transform hover:scale-110"
@@ -19,7 +20,7 @@ const Footer = () => {
             draggable={false}
           />
         </Link>
-        <Link href="mailto:jasonntaa@gmail.com">
+        <Link href="mailto:jasonntaa@gmail.com" aria-label="Send me an email">
           <Image
             className="w-10 h-10 transition-transform hover:scale-110"
             src="/assets/email-button.svg"
@@ -33,6 +34,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/jasontta/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my LinkedIn profile (opens in a new tab)"
         >
           <Image
             className="w-10 h-10 transition-transform hover:scale-110"
@@ -47,6 +49,7 @@ const Footer = () => {
           href="https://www.youtube.com/@JasonandJoey"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my YouTube channel (opens in a new tab)"
         >
           <Image
             className="w-10 h-10 transition-transform hover:scale-110"

@@ -22,7 +22,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     <article className="projects h-full">
       <Dialog>
         <DialogTrigger asChild>
-          <div className="flex flex-col h-full mt-2 bg-black p-10 rounded-4xl cursor-pointer">
+          <button className="flex flex-col h-full mt-2 bg-black p-10 rounded-4xl cursor-pointer text-left w-full hover:bg-neutral-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">
             <div className="relative w-full aspect-video overflow-hidden rounded-lg">
               <Image
                 className="object-cover"
@@ -41,7 +41,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 <TechMarquee items={project.tech} />
               </div>
             </div>
-          </div>
+          </button>
         </DialogTrigger>
         <DialogContent
           style={{ maxWidth: "90vw", width: "100%" }}

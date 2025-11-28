@@ -86,7 +86,7 @@ const About = () => {
             <div className="about-image rounded-2xl overflow-hidden relative">
               <Image
                 src="/images/profile.JPG"
-                alt="profile picture"
+                alt="Portrait of Jason"
                 width={450}
                 height={1200}
                 draggable={false}

@@ -51,24 +51,24 @@ export default function Hero() {
       <h1 className="text uppercase hero-text text-[clamp(1.5rem,8vw,5rem)] text-center text-white leading-none whitespace-nowrap font-medium">
         to leading code
       </h1>
-      <h4 className="text hero-text text-center leading- mt-6 text-white/70 text-[clamp(1rem,3vw,1.4rem)]">
+      <p className="text hero-text text-center leading- mt-6 text-white/70 text-[clamp(1rem,3vw,1.4rem)]">
         Leveraging 6 years within tech and leadership to build exceptional user
         <br></br>
         experience with React, Next.js and Typescript.
-      </h4>
+      </p>
       <Link
         href="https://www.linkedin.com/in/jasontta/"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-8"
+        className="mt-8 text border-2 rounded-3xl text-black bg-white text-[clamp(0.8rem, 2.5vw, 1rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.5rem,1vw,0.5rem)] transition-colors pointer mt-20 duration-300 hover:font-medium inline-block"
+        aria-label="Connect with me on LinkedIn (opens in a new tab)"
       >
-        <button className="text border-2 rounded-3xl text-black bg-white text-[clamp(0.8rem, 2.5vw, 1rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.5rem,1vw,0.5rem)] transition-colors pointer mt-20 duration-300 hover:font-medium">
-          Let&apos;s connect
-        </button>
+        Let&apos;s connect
       </Link>
-      <div
-        className="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+      <button
+        className="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer bg-transparent border-none p-2"
         onClick={scrollToNext}
+        aria-label="Scroll to projects section"
       >
         <div className="flex flex-col items-center text-white/70 hover:text-white transition-colors">
           <svg
@@ -87,7 +87,7 @@ export default function Hero() {
             />
           </svg>
         </div>
-      </div>
+      </button>
     </section>
   );
 }
