@@ -1,21 +1,38 @@
 "use client";
 
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { useState } from "react";
+import { ArrowUpRight, Check } from "@phosphor-icons/react";
 import Button from "../components/Button";
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText("jasonntaa@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy", err);
+    }
+  };
+
   const socialLinks = [
     {
       label: "Email",
-      href: "mailto:jasonntaa@gmail.com",
+      href: "#",
+      isEmail: true,
     },
     {
       label: "LinkedIn",
       href: "https://linkedin.com/in/jasontta",
+      isEmail: false,
     },
     {
       label: "GitHub",
       href: "https://github.com/jasonntaa",
+      isEmail: false,
     },
   ];
 
@@ -65,23 +82,29 @@ export default function Contact() {
               Socials
             </p>
             <div className="flex flex-col gap-4 w-full md:items-end">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.label === "Email" ? undefined : "_blank"}
-                  rel={link.label === "Email" ? undefined : "noopener noreferrer"}
-                  className="group flex items-center justify-between w-full md:w-auto md:justify-end gap-6 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight hover:opacity-60 transition-opacity"
-                >
-                  <span className="md:hidden opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowUpRight size={32} weight="bold" />
-                  </span>
-                  {link.label}
-                  <span className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 transform duration-300">
-                    <ArrowUpRight size={48} weight="bold" />
-                  </span>
-                </a>
-              ))}
+              {socialLinks.map((link) => {
+                const isCopiedState = link.isEmail && copied;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={link.isEmail ? handleEmailClick : undefined}
+                    target={link.isEmail ? undefined : "_blank"}
+                    rel={link.isEmail ? undefined : "noopener noreferrer"}
+                    className={`group flex items-center justify-between w-full md:w-auto md:justify-end gap-6 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight transition-opacity ${isCopiedState ? "text-emerald-400" : "hover:opacity-60"}`}
+                  >
+                    <span className="md:hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                      {isCopiedState ? <Check size={32} weight="bold" /> : <ArrowUpRight size={32} weight="bold" />}
+                    </span>
+                    
+                    {isCopiedState ? "Copied!" : link.label}
+
+                    <span className={`hidden md:block transition-all duration-300 transform ${isCopiedState ? "opacity-100 translate-x-0" : "opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0"}`}>
+                      {isCopiedState ? <Check size={48} weight="bold" /> : <ArrowUpRight size={48} weight="bold" />}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
           
