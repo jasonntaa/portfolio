@@ -17,9 +17,10 @@ const NavLinks = ({
   activeSection: string;
 }) => {
   const links = [
-    { href: "#hero", label: "Home" },
-    { href: "#aboutme", label: "About Me" },
+
     { href: "#projects", label: "Projects" },
+        { href: "#aboutme", label: "The Journey" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (
@@ -27,10 +28,10 @@ const NavLinks = ({
       {links.map(({ href, label }) => (
         <Link
           key={href}
-          className={`nav-link group relative px-4 py-2 transition-colors duration-300 ${
+          className={`nav-link group relative px-4 py-2 transition-colors duration-300 text-xs font-bold uppercase tracking-[0.15em] ${
             activeSection === href
-              ? "text-white font-semibold"
-              : "text-white hover:text-white"
+              ? "text-[#fafaf9]"
+              : "text-[#fafaf9]/50 hover:text-[#fafaf9]"
           }`}
           href={href}
           onClick={(e) => onLinkClick(e, href)}
@@ -54,7 +55,7 @@ const NavBar = () => {
 
   const handleDesktopLinkClick = (
     e: MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ): void => {
     e.preventDefault();
     setActiveSection(href);
@@ -86,23 +87,43 @@ const NavBar = () => {
             },
           });
         });
+
+        // Hide navbar as soon as user starts scrolling, reveal when back at top
+        ScrollTrigger.create({
+          trigger: "#hero",
+          start: "top top+=1",
+          onLeave: () => {
+            gsap.to(headerRef.current, {
+              yPercent: -100,
+              duration: 0.35,
+              ease: "power2.inOut",
+            });
+          },
+          onEnterBack: () => {
+            gsap.to(headerRef.current, {
+              yPercent: 0,
+              duration: 0.35,
+              ease: "power2.out",
+            });
+          },
+        });
       };
 
       const timer = setTimeout(initScrollTriggers, 100);
 
       return () => clearTimeout(timer);
     },
-    { scope: headerRef }
+    { scope: headerRef },
   );
 
   return (
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 z-40 flex justify-around items-center w-full p-4 m-auto bg-[#1a1a1a]/40 backdrop-blur-xl border-b border-gray-500"
+        className="fixed top-0 z-50 flex items-center w-full px-6 md:px-16 py-4 bg-[#0e0e0e]"
       >
-        <nav className="flex top-0 left-0 right-0 justify-between w-[80vw] items-center">
-          <p className="flex-start text-white">Jason</p>
+        <nav className="flex w-full justify-end items-center">
+          
           <div className="hidden md:hidden lg:flex">
             <NavLinks
               onLinkClick={handleDesktopLinkClick}
@@ -119,8 +140,8 @@ const NavBar = () => {
             aria-expanded={navOpen}
             aria-controls="nav-overlay"
           >
-            <span className="block w-[40px] h-[1px] bg-white"></span>
-            <span className="block w-[40px] h-[1px] bg-white"></span>
+            <span className="block w-[40px] h-[1px] bg-[#fafaf9]"></span>
+            <span className="block w-[40px] h-[1px] bg-[#fafaf9]"></span>
           </button>
         </nav>
       </header>

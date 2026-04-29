@@ -1,19 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
 @import "tailwindcss";
 
 @theme {
   --color-primary: #1a1a1a;
   --color-secondary: #fafaf9;
+  
 }
+
 html,
 body {
   width: 100dvw;
   overflow-x: hidden;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: #fafaf9;
+  color: #1a1a1a;
   scroll-behavior: smooth;
   font-family: "Mona Sans", sans-serif;
 }
+
 
 #smooth-wrapper {
   overflow: hidden;
@@ -30,6 +34,7 @@ body {
     from {
       transform: translateX(0);
     }
+
     to {
 
       transform: translateX(-50%);
@@ -41,3 +46,50 @@ body {
   }
 }
 
+/* Coming Soon card animations */
+@keyframes coming-soon-glow {
+  0%, 100% {
+    box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.05), 0 0 20px rgba(16, 185, 129, 0.03);
+  }
+  50% {
+    box-shadow: inset 0 0 30px rgba(16, 185, 129, 0.1), 0 0 40px rgba(16, 185, 129, 0.06);
+  }
+}
+
+.coming-soon-glow {
+  animation: coming-soon-glow 4s ease-in-out infinite;
+}
+
+@keyframes coming-soon-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+.coming-soon-pulse {
+  animation: coming-soon-pulse 2.5s ease-in-out infinite;
+}
+
+/* TechStack icon invert on hover */
+.tech-item:hover svg {
+  filter: invert(1);
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon-glow,
+  .coming-soon-pulse,
+  .animate-marquee {
+    animation: none;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

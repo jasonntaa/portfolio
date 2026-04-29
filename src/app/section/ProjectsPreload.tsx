@@ -8,8 +8,9 @@ import TechStack from "./TechStack";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MyProjects = () => {
+const TechSection = () => {
   useGSAP(() => {
+    gsap.set(".tech-meta", { opacity: 0, y: 20 });
     gsap.set(".title-main", { opacity: 0, y: 30 });
     gsap.set(".title-sub", { opacity: 0, y: 20 });
     gsap.set(".descriptor", { opacity: 0, y: 15 });
@@ -17,7 +18,7 @@ const MyProjects = () => {
     const entranceTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".wrapper",
-        start: "top 80%",
+        start: "top 85%",
         end: "bottom bottom",
         toggleActions: "play none none reverse",
         markers: false,
@@ -25,13 +26,18 @@ const MyProjects = () => {
     });
 
     entranceTl
+      .to(".tech-meta", {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+      })
       .to(".title-main", {
         opacity: 1,
         y: 0,
         duration: 0.8,
         ease: "power2.out",
-      })
-
+      }, "-=0.3")
       .to(
         ".descriptor",
         {
@@ -41,19 +47,26 @@ const MyProjects = () => {
           stagger: 0.2,
           ease: "power2.out",
         },
-        "-=0.3"
+        "-=0.3",
       );
   });
 
   return (
     <section
-      id="projects"
-      className="flex justify-center items-center h-[75vh]  w-full bg-[#fafaf9] m-auto -mt-px"
+      id="projects-preload"
+      className="flex flex-col justify-center items-center min-h-[90vh] w-full bg-[#fafaf9] m-auto -mt-px px-6 md:px-16 pt-16 pb-12"
     >
-      <div className="wrapper overflow-hidden flex flex-col mt-30 justify-center items-center py-8">
-        <div className="text-center mb-6">
-          <h1 className="title-main text-black text-[clamp(2rem,4vw,6rem)] tracking-wider uppercase font-semibold">
-            Welcome To My Playground
+      <div className="wrapper overflow-hidden flex flex-col justify-center items-center w-full">
+        
+        {/* Meta strip */}
+        <div className="tech-meta w-full flex items-center justify-between text-xs font-semibold uppercase tracking-[0.25em] text-black/50 border-b border-black/10 pb-4 mb-10 md:mb-16">
+          <span>Capabilities</span>
+          <span>Tech Stack</span>
+        </div>
+
+        <div className="text-center mb-6 w-full flex justify-center">
+          <h1 className="title-main text-black text-[clamp(2rem,6vw,12rem)] tracking-wider uppercase font-semibold">
+            MODERN TECHSTACK
           </h1>
         </div>
 
@@ -63,4 +76,4 @@ const MyProjects = () => {
   );
 };
 
-export default MyProjects;
+export default TechSection;

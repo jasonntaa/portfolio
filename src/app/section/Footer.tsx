@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <section className="bg-[#1a1a1a] py-8 px-4">
+    <section className="bg-black py-8 px-4">
       <div className="icons flex justify-center gap-5 mb-4">
         <Link
           href="https://github.com/jasonntaa"

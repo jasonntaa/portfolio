@@ -3,91 +3,85 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
+import Button from "../components/Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Helper function to split text into words for staggered animation
+const SplitText = ({ text }: { text: string }) => {
+  return (
+    <>
+      {text.split(" ").map((word, index) => (
+        <span key={index} className="inline-block overflow-hidden mr-[0.3em] pb-[0.2em] -mt-[0.2em]">
+          <span className="hero-word inline-block transform translate-y-full tracking-tight">
+            {word}
+          </span>
+        </span>
+      ))}
+    </>
+  );
+};
+
 export default function Hero() {
+
   useGSAP(() => {
-    gsap.from(".text", {
-      y: 40,
-      opacity: 0,
-      delay: 4,
+    // Stagger clip-path text reveal
+    gsap.to(".hero-word", {
+      y: 0,
+      duration: 1.2,
+      stagger: 0.1,
+      ease: "power4.out",
+      delay: 2.6,
     });
-    gsap.to(".scroll-indicator", {
-      y: 10,
-      duration: 1.5,
-      ease: "power2.inOut",
-      repeat: -1,
-      yoyo: true,
-      delay: 5,
+
+    gsap.from(".hero-element", {
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power3.out",
+      delay: 3.2,
     });
   }, []);
-
-  const scrollToNext = () => {
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: "#projects",
-    });
-  };
 
   return (
     <section
       id="hero"
-      className="relative overflow-hidden text hero-text dark-section layout flex flex-col items-center justify-center h-screen pt-[60px] p-4 md:px-8 lg:px-20"
+      className="relative bg-[#0e0e0e] min-h-[100svh] flex flex-col justify-between pt-[120px] pb-12 overflow-hidden"
     >
-      <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        aria-hidden="true"
-      >
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500 dark:bg-blue-400 rounded-full blur-3xl opacity-10 dark:opacity-5 transition-opacity duration-300" />
-      </div>
-      <p className="text text-sm tracking-[0.2em] uppercase text-white/50">
-        Front-end developer
-      </p>
-      <h1 className="text uppercase hero-text text-[clamp(1.5rem,8vw,5rem)] text-center text-white whitespace-nowrap  leading-30 font-medium">
-        From leading teams
-      </h1>
-      <h1 className="text uppercase hero-text text-[clamp(1.5rem,8vw,5rem)] text-center text-white leading-none whitespace-nowrap font-medium">
-        to leading code
-      </h1>
-      <p className="text hero-text text-center leading- mt-6 text-white/70 text-[clamp(1rem,3vw,1.4rem)]">
-        Leveraging 6 years within tech and leadership to build exceptional user
-        <br></br>
-        experience with React, Next.js and Typescript.
-      </p>
-      <Link
-        href="https://www.linkedin.com/in/jasontta/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-8 text border-2 rounded-3xl text-black bg-white text-[clamp(0.8rem, 2.5vw, 1rem)] px-[clamp(1rem,3vw,2rem)] py-[clamp(0.5rem,1vw,0.5rem)] transition-colors pointer mt-20 duration-300 hover:font-medium inline-block"
-        aria-label="Connect with me on LinkedIn (opens in a new tab)"
-      >
-        Let&apos;s connect
-      </Link>
-      <button
-        className="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer bg-transparent border-none p-2"
-        onClick={scrollToNext}
-        aria-label="Scroll to projects section"
-      >
-        <div className="flex flex-col items-center text-white/70 hover:text-white transition-colors">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="animate-bounce"
-          >
-            <path
-              d="M7 10L12 15L17 10"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+
+      {/* Main Typography Area */}
+      <div className="w-full px-6 md:px-16 z-10 flex flex-col justify-center flex-grow mt-10 md:mt-0">
+        <div className="flex justify-start w-full">
+          <h1 className="text-clampHero1 leading-[0.9] mb-2 font-bold uppercase text-[#fafaf9]">
+            <SplitText text="From leading teams" />
+          </h1>
         </div>
-      </button>
+        <div className="flex justify-end w-full mt-2 md:mt-6">
+          <h1 className="text-clampHero1 leading-[0.9] font-bold uppercase text-[#fafaf9]/40 text-right">
+            <SplitText text="to leading code." />
+          </h1>
+        </div>
+      </div>
+
+      {/* Bottom Information Area */}
+      <div className="w-full px-6 md:px-16 z-10 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10 items-end mt-16 md:mt-24">
+        <p className="hero-element text-left text-[#fafaf9]/70 font-medium text-lg md:text-xl max-w-lg leading-relaxed">
+          Leveraging 6 years within tech and leadership to architect exceptional digital experiences with React, Next.js, and TypeScript.
+        </p>
+
+        <div className="flex md:justify-end hero-element">
+          <Button href="https://www.linkedin.com/in/jasontta/">
+            Let&apos;s Connect
+          </Button>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        .text-clampHero1 {
+          font-size: clamp(3rem, 7vw, 7.5rem);
+        }
+      `}</style>
     </section>
   );
 }
