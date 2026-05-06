@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Mona_Sans } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Preloader from "./section/PreLoader";
@@ -10,6 +11,11 @@ import AboutMe from "./section/AboutMe";
 import Contact from "./section/Contact";
 import Footer from "./section/Footer";
 
+const monaSans = Mona_Sans({
+  subsets: ["latin"],
+  variable: "--font-mona",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Portfolio.",
@@ -22,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={monaSans.variable}>
       <body className="bg-background">
         <Preloader />
         <NavBar />
