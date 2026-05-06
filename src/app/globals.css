@@ -86,8 +86,30 @@ body {
     animation: none;
   }
 
-  * {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+  /* Force GSAP-managed entrance elements to their final visible state.
+     Without this, gsap.from()/inline opacity:0 leaves content hidden when
+     the entrance timelines don't run as expected. */
+  .hero-word,
+  .hero-element,
+  .intro-J,
+  .intro-T,
+  .intro-ASON-char,
+  .intro-A-char,
+  .project-text,
+  .project-card,
+  .about-text-reveal,
+  .tech-meta,
+  .title-main,
+  .title-sub,
+  .descriptor,
+  .journey-title,
+  #playground {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Skip the preloader entirely. */
+  #preloader {
+    display: none !important;
   }
 }
